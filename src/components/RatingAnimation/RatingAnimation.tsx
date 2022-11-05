@@ -3,13 +3,13 @@ import { ReactComponent as IconStar } from '@/assets/icons/star.svg';
 import styles from './RatingAnimation.module.scss';
 
 export interface PropsRating {
+  sizeStar?: number;
   countItem?: number;
   value?: number;
   onChange?: (value: number) => void;
   colorStar?: string;
   disabled?: boolean;
   colorInactiveStar?: string;
-  sizeStar?: number;
 }
 
 export const RatingAnimation = ({
