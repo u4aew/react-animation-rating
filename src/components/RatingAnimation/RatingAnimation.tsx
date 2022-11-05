@@ -21,8 +21,8 @@ export const RatingAnimation = ({
   value = 0,
   offset = 5,
 }: PropsRating): JSX.Element => {
-  const [delta, setDelta] = React.useState(0);
-  const [deltaActive, setDeltaActive] = React.useState(0);
+  const [delta, setDelta] = React.useState<number>(0);
+  const [deltaActive, setDeltaActive] = React.useState<number>(0);
 
   const countRating = useMemo(() => {
     return Array.from({ length: countItem + delta }, (_, index) => index + 1);
@@ -32,8 +32,12 @@ export const RatingAnimation = ({
     return Array.from({ length: value + deltaActive }, (_, index) => index + 1);
   }, [value, deltaActive]);
 
-  const handleMouseOver = (e) => {
-    console.log(e);
+  const handleMouseOver = (idx) => {
+    setDeltaActive(idx - value);
+  };
+
+  const handleMouseActiveOver = (idx) => {
+    console.log(idx);
   };
 
   return (
@@ -42,6 +46,7 @@ export const RatingAnimation = ({
         {countRating.map((i) => {
           return (
             <button
+              onMouseOut={() => setDeltaActive(0)}
               onMouseOver={() => {
                 handleMouseOver(i);
               }}
@@ -65,6 +70,9 @@ export const RatingAnimation = ({
         {countRatingActive.map((i) => {
           return (
             <button
+              onMouseOver={() => {
+                handleMouseActiveOver(i);
+              }}
               key={i}
               style={{
                 color: colorStar,
