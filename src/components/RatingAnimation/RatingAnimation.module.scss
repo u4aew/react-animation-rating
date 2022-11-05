@@ -1,0 +1,34 @@
+.rating {
+  position: relative;
+}
+.ratingBack,
+.ratingFront {
+  display: flex;
+}
+
+.ratingFront {
+  position: absolute;
+  top: 0;
+}
+.ratingItem {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ratingIcon {
+  width: 1em;
+  height: 1em;
+  path {
+    fill: currentColor;
+  }
+  &.active {
+    path {
+      fill: currentColor;
+    }
+  }
+}
