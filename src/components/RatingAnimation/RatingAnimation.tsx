@@ -5,8 +5,8 @@ import styles from './RatingAnimation.module.scss';
 export interface PropsRating {
   countItem?: number;
   value?: number;
-  disabled?: boolean;
   onChange?: (value: number) => void;
+  disabled?: boolean;
   colorStar?: string;
   colorInactiveStar?: string;
   sizeStar?: number;
