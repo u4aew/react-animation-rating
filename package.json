@@ -11,8 +11,7 @@
     ".": {
       "import": "./dist/index.es.js"
     },
-    "./dist/style.css": "./dist/style.css",
-    "./dist/themes/": "./dist/themes/"
+    "./dist/style.css": "./dist/style.css"
   },
   "sideEffects": false,
   "files": [
