@@ -24,7 +24,7 @@
     "lint:fix": "npm run lint -- --fix",
     "prettier": "prettier --ignore-unknown --write **/*",
     "storybook": "start-storybook -p 6006 -s public --no-open",
-    "build:storybook": "build-storybook -s public",
+    "build:storybook": "build-storybook",
     "build:scripts": "vite build",
     "build:types": "tsc --emitDeclarationOnly --project tsconfig.production.json && tsc-alias",
     "build": "run-p build:*"

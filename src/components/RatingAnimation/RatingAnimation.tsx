@@ -5,12 +5,12 @@ import styles from './RatingAnimation.module.scss';
 export interface PropsRating {
   sizeStar?: number;
   countItem?: number;
-  value?: number;
-  onChange?: (value: number) => void;
-  disabled?: boolean;
+  value: number;
   colorStar?: string;
   offset?: number;
   colorInactiveStar?: string;
+  disabled?: boolean;
+  onChange?: (value: number) => void;
 }
 
 export const RatingAnimation = ({
@@ -21,14 +21,20 @@ export const RatingAnimation = ({
   value = 0,
   offset = 5,
 }: PropsRating): JSX.Element => {
+  const [delta, setDelta] = React.useState(0);
+  const [deltaActive, setDeltaActive] = React.useState(0);
 
   const countRating = useMemo(() => {
-    return Array.from({ length: countItem }, (_, index) => index + 1);
-  }, [countItem]);
+    return Array.from({ length: countItem + delta }, (_, index) => index + 1);
+  }, [countItem, delta]);
 
   const countRatingActive = useMemo(() => {
-    return Array.from({ length: value }, (_, index) => index + 1);
-  }, [value]);
+    return Array.from({ length: value + deltaActive }, (_, index) => index + 1);
+  }, [value, deltaActive]);
+
+  const handleMouseOver = (e) => {
+    console.log(e);
+  };
 
   return (
     <div className={styles.rating}>
@@ -36,6 +42,9 @@ export const RatingAnimation = ({
         {countRating.map((i) => {
           return (
             <button
+              onMouseOver={() => {
+                handleMouseOver(i);
+              }}
               key={i}
               style={{
                 color: colorInactiveStar,
