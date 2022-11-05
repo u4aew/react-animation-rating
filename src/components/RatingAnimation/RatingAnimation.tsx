@@ -6,8 +6,8 @@ export interface PropsRating {
   countItem?: number;
   value?: number;
   onChange?: (value: number) => void;
-  disabled?: boolean;
   colorStar?: string;
+  disabled?: boolean;
   colorInactiveStar?: string;
   sizeStar?: number;
 }
