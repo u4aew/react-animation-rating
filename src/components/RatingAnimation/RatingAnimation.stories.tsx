@@ -14,11 +14,13 @@ export default {
 const Template: ComponentStory<typeof RatingAnimation> = (args) => {
   return (
     <div>
-      <RatingAnimation countItem={5} />
+      <RatingAnimation value={args.value} countItem={5} />
     </div>
   );
 };
 
 export const Playgrounds = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Playgrounds.args = {};
+Playgrounds.args = {
+  value: 3,
+};
