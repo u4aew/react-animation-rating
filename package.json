@@ -1,7 +1,7 @@
 {
   "name": "react-animation-rating",
   "keywords": ["react", "rating", "animation"],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React animation rating",
   "license": "ISC",
   "main": "dist/index.cjs.js",
@@ -114,5 +114,12 @@
   "volta": {
     "node": "16.13.2",
     "npm": "8.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/u4aew/react-animation-rating"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
