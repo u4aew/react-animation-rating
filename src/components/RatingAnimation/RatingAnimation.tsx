@@ -11,6 +11,7 @@ export interface PropsRating {
   colorInactiveStar?: string;
   disabled?: boolean;
   onChange?: (e: any) => void;
+  className?: string;
 }
 
 export const RatingAnimation = ({
@@ -21,6 +22,7 @@ export const RatingAnimation = ({
   value,
   onChange,
   disabled,
+  className,
 }: PropsRating): JSX.Element => {
   const [animatePosStar, setAnimatePosStar] = React.useState<number>(0);
   const [hoverPosStar, setHoverPosStar] = React.useState<number>(value);
@@ -62,7 +64,7 @@ export const RatingAnimation = ({
   );
 
   return (
-    <div className={cn(styles.rating, disabled && styles.ratingDisabled)}>
+    <div className={cn(styles.rating, disabled && styles.ratingDisabled, className)}>
       <div className={styles.ratingWrapper}>
         {countRating.map((_, idx) => {
           return (
