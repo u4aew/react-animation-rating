@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/react-animation-rating.svg)](https://badge.fury.io/js/react-animation-rating)
+
 # React-animation-rating
 A simple component to display rating as stars
 
@@ -10,19 +12,22 @@ npm i react-animation-rating
 ## Usage
 
 ```js
-const Template: ComponentStory<typeof RatingAnimation> = (args) => {
-  const [value, setValue] = React.useState(4);
+import React, {useState} from 'react';
+import RatingAnimation from "react-animation-rating";
+import 'react-animation-rating/dist/style.css';
 
+function App() {
+  const [value, setValue] = useState(4);
   return (
-    <div>
-      <RatingAnimation
-        value={value}
-        countItem={5}
-        onChange={setValue}
-      />
+    <div className="App">
+      <div className="App-header">
+        <RatingAnimation value={value} onChange={setValue}/>
+      </div>
     </div>
   );
-};
+}
+
+export default App;
 ```
 ## Demo
 [https://u4aew.github.io/react-animation-rating/](https://u4aew.github.io/react-animation-rating/)
