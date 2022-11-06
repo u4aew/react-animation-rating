@@ -26,6 +26,8 @@ const Template: ComponentStory<typeof RatingAnimation> = (args) => {
 };
 ```
 ## Demo
+[https://u4aew.github.io/react-animation-rating/](https://u4aew.github.io/react-animation-rating/)
+
 ![demo](./img/demo.gif)
 
 ## Options
