@@ -8,8 +8,8 @@ export interface PropsRating {
   countItem?: number;
   value: number;
   colorStar?: string;
-  colorInactiveStar?: string;
   disabled?: boolean;
+  colorInactiveStar?: string;
   onChange?: (e: any) => void;
   className?: string;
 }
