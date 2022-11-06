@@ -1,25 +1,51 @@
 .rating {
-  position: relative;
 }
+.ratingDisabled {
+  pointer-events: none;
+}
+
 .ratingBack,
-.ratingFront {
+.ratingWrapper {
   display: flex;
 }
 
-.ratingFront {
-  position: absolute;
-  top: 0;
-}
 .ratingItem {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
   padding: 0;
+  transform: scale(1);
   border: none;
   background-color: transparent;
   font: inherit;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  opacity: 1;
+  transition: opacity 0.256s linear;
+  &:before {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    content: '';
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
 }
+.ratingItemActive {
+}
+
+.ratingItemAnimate {
+  animation: animate 0.756s linear;
+}
+
 .ratingIcon {
   width: 1em;
   height: 1em;
@@ -30,5 +56,23 @@
     path {
       fill: currentColor;
     }
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  70% {
+    transform: rotate(253deg) scale(1.2);
+  }
+
+  80% {
+    transform: rotate(288deg) scale(1.4);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
   }
 }
