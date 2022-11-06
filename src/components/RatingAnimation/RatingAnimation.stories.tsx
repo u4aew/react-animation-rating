@@ -12,7 +12,7 @@ export default {
 } as ComponentMeta<typeof RatingAnimation>;
 
 const Template: ComponentStory<typeof RatingAnimation> = (args) => {
-  const [value, setValue] = React.useState(4);
+  const [value, setValue] = React.useState(3);
 
   return (
     <div>

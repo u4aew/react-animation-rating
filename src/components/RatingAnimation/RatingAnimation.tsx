@@ -1,5 +1,5 @@
 import cn from 'clsx';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { ReactComponent as IconStar } from '@/assets/icons/star.svg';
 import styles from './RatingAnimation.module.scss';
 
@@ -32,41 +32,32 @@ export const RatingAnimation = ({
   }, [countItem]);
 
   const handleMouseActiveOver = (idx: number) => {
-    setHoverPosStar(idx + 1);
+    setHoverPosStar(idx);
   };
 
   const handleClick = useCallback(
     (idx: number) => {
       if (!disabled && onChange) {
-        setAnimatePosStar(idx + 1);
-        onChange(idx + 1);
+        setAnimatePosStar(idx);
+        onChange(idx);
       }
     },
     [disabled, onChange],
   );
 
-  const hasActiveStar = useCallback(
+  const hasHighlightStar = useCallback(
     (idx: number) => {
-      if (idx <= value) {
+      if (idx <= value || idx <= hoverPosStar) {
         return true;
       }
     },
-    [value],
-  );
-
-  const hasHoverStar = useCallback(
-    (idx: number) => {
-      if (idx <= hoverPosStar) {
-        return true;
-      }
-    },
-    [hoverPosStar],
+    [value, hoverPosStar],
   );
 
   return (
     <div className={cn(styles.rating, disabled && styles.ratingDisabled, className)}>
       <div className={styles.ratingWrapper}>
-        {countRating.map((_, idx) => {
+        {countRating.map((idx) => {
           return (
             <button
               onMouseOver={() => {
@@ -80,12 +71,12 @@ export const RatingAnimation = ({
               }}
               key={idx}
               style={{
-                color: hasActiveStar(idx + 1) || hasHoverStar(idx + 1) ? colorStar : colorInactiveStar,
+                color: hasHighlightStar(idx) ? colorStar : colorInactiveStar,
                 width: sizeStar,
                 height: sizeStar,
                 fontSize: sizeStar,
               }}
-              className={cn(styles.ratingItem, idx + 1 === animatePosStar && styles.ratingItemAnimate)}
+              className={cn(styles.ratingItem, idx === animatePosStar && styles.ratingItemAnimate)}
               type="button"
             >
               <IconStar className={styles.ratingIcon} />
