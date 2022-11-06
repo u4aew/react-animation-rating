@@ -1,4 +1,3 @@
-[![npm version](https://badge.fury.io/js/react-animation-rating.svg)](https://badge.fury.io/js/react-animation-rating)
 # React-animation-rating
 A simple component to display rating as stars
 
